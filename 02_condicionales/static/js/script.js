@@ -185,6 +185,6 @@ function ejercicio10() {
         bitacora.push(nombreVisita);
         alert(`Agregado correctamente a la lista: \n${bitacora.join(", ")}\npersonas en total: ${bitacora.length}`);
     } else (
-        alert("Ingrese valores válidos.");
+        alert("Ingrese valores válidos.")
     )
 }
