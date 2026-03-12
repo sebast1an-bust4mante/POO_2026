@@ -27,14 +27,20 @@ Usa un ciclo for para recorrer el arreglo. En cada iteración, agrega el nombre 
 */
 
 function asistenciaAutomatica() {
-    let curso = ["Ana", "Diego", "Sofia", "Matias"]
-    const container = document.getElementById('container2');
-    const resultado = document.getElementById('result2')
+    let curso = ["Ana", "Diego", "Sofía", "Matias"];
+    let resultado = [];
+    const container2 = document.getElementById('container2');
+    const result2 = document.getElementById('result2');
+    result2.textContent = "";
     for (let i = 0; i < curso.length; i++) {
-        resultado.textContent += `${curso[i]},`
+        resultado.push(curso[i])
     }
-    container.classList.remove(`d-none`)
+    result2.textContent = `${resultado.join(", ")}`;
+    container2.classList.remove('d-none');
+
 }
+
+
 
 /*
 3. Buscador de Aprobados (Escala 1 a 7)
@@ -55,7 +61,7 @@ function buscarAprobados() {
         }
     }
 }
-resultado.textContent = "Total de alumnos aprobados: "+ contadorAprobados
+resultado.textContent = "Total de alumnos aprobados: " + contadorAprobados
 container.classList.remove('d-none')
 
 /*
@@ -66,3 +72,62 @@ Recorre la lista con un ciclo for.
 Si el producto es diferente de "Agotado" (!==), 
 agrégalo al texto del párrafo pantalla. Si dice "Agotado", sáltalo.
 */
+
+function controlStock() {
+    let productos = ["Teclado", "Mouse", "Agotado", "Monitor", "Agotado", "Audífonos"];
+    let disponibles = [];
+    const container = document.getElementById('container4');
+    const resultado = document.getElementById('result4');
+    resultado.textContent = "";
+    for (let i = 0; i < productos.length; i++) {
+        if (productos[i] !== "Agotado") {
+            disponibles.push(productos(i))
+        }
+    }
+}
+
+/*
+5. Sumando la Colecta
+Durante una actividad escolar se recolectaron distintos montos en dinero: let aportes = [1500, 2000, 500, 3000, 1000];
+Crea una variable totalRecaudado que inicie en 0.
+Usa un ciclo for para sumar cada uno de los aportes a la variable total.
+Al finalizar el ciclo, escribe en el párrafo: "La colecta reunió un total de: $[total]".
+*/
+
+function operarIntruso() {
+    let aportes = [1500, 2000, 500, 3000, 1000];
+    let totalRecaudado = 0;
+    const container = document.getElementById('container5');
+    const resultado = document.getElementById('result5');
+
+    for (let i = 0; i < aportes.length; i++) {
+        totalRecaudado += aportes[i];
+    }
+    resultado.textContent = `La colecta reunió un total de $${[totalrecaudado]}`
+    container.classList.remove(`d-none`)
+}
+
+/*
+6. Formateador de Nombres VIP
+Tienes una lista de usuarios: let asistentes = ["carlos", "MARIA", "pedro", "LUCIA"];
+Queremos mostrarlos en el HTML, pero destacando a algunos.
+Recorre el arreglo. Si el índice actual (i) es par (puedes usar i % 2 === 0), 
+agrega la palabra " [VIP]" al lado de su nombre y muéstralo en el párrafo. 
+Si es impar, muéstralo normal.
+*/
+
+function nombreVip() {
+    let asistentes = ["carlos", "MARIA", "pedro", "LUCIA"];
+    let resultado = [];
+    const container6 = document.getElementById('container6');
+    const result6 = document.getElementById('result6');
+    for (let i = 0; i < asistentes.length; i++) {
+        if (i % 2 === 0) {
+            resultado.push(`${asistentes[i]} [VIP]`);
+        } else {
+            resultado.push(`${asistentes[i]}`);
+        }
+    }
+    result6.textContent = resultado.join(" - ");
+    container6.classList.remove(`d-none`);
+}
