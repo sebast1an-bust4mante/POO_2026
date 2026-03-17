@@ -131,3 +131,34 @@ function nombreVip() {
     result6.textContent = resultado.join(" - ");
     container6.classList.remove(`d-none`);
 }
+
+/*
+7. El Buscador de Stock Específico
+Tienes un inventario: let bodega = ["Lápiz", "Cuaderno", "Goma", "Cuaderno", "Regla", "Cuaderno"];
+Crea una variable articuloBuscado = "Cuaderno" y una variable vecesEncontrado = 0.
+Recorre la bodega con un for. Cada vez que el elemento de la lista sea igual al articuloBuscado, aumenta tu contador.
+Al final, inyecta en el párrafo: "El artículo [articuloBuscado] se encuentra [veces] veces en la bodega".
+*/
+
+/*
+8. Generador de Párrafos de Advertencia
+Tienes una lista de temperaturas registradas en una sala de servidores: let temperaturas = [22, 24, 28, 35, 21, 38];
+Queremos mostrar alertas solo para las temperaturas peligrosas.
+Usa .innerHTML en lugar de .textContent en tu párrafo.
+*/
+
+function generarParrafos(){
+    let temperaturas = [22, 24, 28, 35, 21, 38];
+    let temperaturasPeligrosas = [];
+
+    const container8 = document.getElementById('container8');
+    const result8 = document.getElementById('result8');
+
+    for (i = 0 < temperaturas.length; i++;) {
+        if (temperaturas[i] >= 30 && temperaturas[i] < 50) {
+            result8.innerHTML +=
+            `<p class="text-danger">¡ALERTA! temperatura critica de ${temperaturas} grados.</p><br>`;
+        }
+        container.classList.remove(`d-none`)
+    }
+}
