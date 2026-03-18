@@ -42,12 +42,12 @@
     </header>
     <main class="contenedor p-2 d-flex gap-3 flex-wrap">
         <!-- tarjeta 1 -->
-        <div class="card" style="width: 18rem;"><                  
+        <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Ejercicio 1</h5>
                 <p class="card-text">Lista de asistencia (push)</p>
-                <input type="text"class="form-control mb-3" id="input1" placeholder="Ingresar un nombre">
-                <a href="#" class="btn btn-primary" onclick="contadorPantalla()">ejecutar</a>
+                <input type="text" class="form-control mb-3" id="input1" placeholder="Ingresar un nombre">
+                <a href="#" class="btn btn-primary" onclick="registrarAlumno()">ejecutar</a>
                 <div id="container1" class="d-none">
                     <h5>Resultado</h5>
                     <div id="result1" class="alert alert-success fw-bold"></div>
@@ -58,8 +58,9 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Ejercicio 2</h5>
-                <p class="card-text">Lista de Asistencia Automática.</p>
-                <button href="#" class="btn btn-primary" onclick="asistenciaAutomatica()">ejecutar</button>
+                <p class="card-text">Fila de Urgencias Médicas.</p>
+                <input type="text" class="form-control mb-3" id="input2" placeholder="Ingresar el nombre del paciente">
+                <button href="#" class="btn btn-primary" onclick="ingresarUrgencia()">ejecutar</button>
                 <div id="container2" class="d-none">
                     <h5>Resultado</h5>
                     <div id="result2" class="alert alert-success fw-bold"></div>
