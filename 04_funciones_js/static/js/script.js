@@ -79,8 +79,8 @@ Limpia el input.
 
 let = ["Pizza", "Sushi", "Hamburguesa", "Ensalada"];
 function actualizarPedidos(pedido) {
-    if(pedido == "despachar") {
-        entregas.shift() 
+    if (pedido == "despachar") {
+        entregas.shift()
     } else if (pedido == "cancelar") {
         entregas.pop()
     } else {
@@ -111,3 +111,58 @@ Si el elemento actual del ciclo es igual al texto del input, cambia la variable 
 Fuera del ciclo, inyecta la variable mensaje en el textContent del párrafo.
 Limpia el input.
 */
+
+let codigosValidos = ["VERANO2026", "PROMO50", "CLIENTEVIP"];
+function buscarCodigo(codigo) {
+    let mensaje = "Código inválido o expirado";
+    for (let i = 0; i < codigosValidos.length; i++) {
+        if (codigo === codigosValidos) {
+            mensaje = "¡Exito! Codigo aceptado"
+            return "¡Exito! Codigo aceptado"
+        } else {
+            mensaje = "Ingresa un Código válido"
+        }
+    }
+    return mensaje
+}
+
+function verificarCodigo() {
+    let input = document.getElementById("input4");
+    let codigo = input.value;
+    const result = document.getElementById("result4");
+    const container = document.getElementById("container4");
+    let resultado = buscarCodigo(codigo);
+    result.textContent = resultado;
+    input.value = "";
+    container.classList.remove("d-none");
+
+}
+
+/*
+Ejercicio 5: Simulador de Cuotas (for)
+Contexto: Un cliente compra un producto y el sistema le genera automáticamente las etiquetas para sus próximas 3 letras de pago.
+Función Principal: Crea simularCuotas().
+Captura el nombre del producto desde el input (ej: "Bicicleta").
+Crea una variable vacía: registroPagos = "";
+Crea un ciclo for que dé exactamente 3 vueltas (del 1 al 3).
+En cada vuelta, súmale (+=) a registroPagos el producto y el número de la cuota (Ej: producto + " - Cuota " + i + " | ").
+Fuera del ciclo, muestra la variable registroPagos en el textContent del párrafo.
+Limpia el input.
+*/
+function calcularQuotas(valor, cuota) {
+    let registroPagos = "";
+    for(let i = 1; i <= 3; i++) {
+        registroPagos += ` | `
+    }    
+}
+
+function simularCuotas() {
+    const producto = document.getElementById("input5");
+    const cuota = document.getElementById("result5");
+    const result = document.getElementById("container");
+    const container = document.getElementById
+    result.textContent = resultado;
+    input.value = "";
+    container.classList.remove("d-none");
+
+}
