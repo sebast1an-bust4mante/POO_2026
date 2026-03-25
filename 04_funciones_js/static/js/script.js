@@ -18,7 +18,12 @@ function agregarLista(nombre) {
     return asistencia.join(", ");
 }
 
-
+// let = variable
+// const = constante
+// document = HTML
+// input.value = valor del input
+// getElementById = busca la id 
+// document.getElementById = busca la id en el documento
 function registrarAlumno() {
     const container = document.getElementById("container1");
     const result = document.getElementById("result1");
@@ -50,6 +55,12 @@ function agregarUrgencia(nombre) {
     return pacientes.join(", ");
 };
 
+// let = variable
+// const = constante
+// document = HTML
+// input.value = valor del input
+// getElementById = busca la id 
+// document.getElementById = busca la id en el documento
 function ingresarUrgencia() {
     const container = document.getElementById("container2");
     const result = document.getElementById("result2");
@@ -89,6 +100,12 @@ function actualizarPedidos(pedido) {
     return `Pedidos pendientes: ${entregas.join(", ")}`
 }
 
+// let = variable
+// const = constante
+// document = HTML
+// input.value = valor del input
+// getElementById = busca la id 
+// document.getElementById = busca la id en el documento
 function gestionarPedidos() {
     const container = document.getElementById("container3");
     const result = document.getElementById("result3");
@@ -116,7 +133,7 @@ let codigosValidos = ["VERANO2026", "PROMO50", "CLIENTEVIP"];
 function buscarCodigo(codigo) {
     let mensaje = "Código inválido o expirado";
     for (let i = 0; i < codigosValidos.length; i++) {
-        if (codigo === codigosValidos) {
+        if (codigo === codigosValidos[i]) {
             mensaje = "¡Exito! Codigo aceptado"
             return "¡Exito! Codigo aceptado"
         } else {
@@ -126,16 +143,21 @@ function buscarCodigo(codigo) {
     return mensaje
 }
 
+// let = variable
+// const = constante
+// document = HTML
+// input.value = valor del input
+// getElementById = busca la id 
+// document.getElementById = busca la id en el documento
 function verificarCodigo() {
     let input = document.getElementById("input4");
     let codigo = input.value;
     const result = document.getElementById("result4");
     const container = document.getElementById("container4");
-    let resultado = buscarCodigo(codigo);
+    let resultado = buscarCodigo(codigo);// Llama a la función
     result.textContent = resultado;
     input.value = "";
     container.classList.remove("d-none");
-
 }
 
 /*
@@ -152,17 +174,93 @@ Limpia el input.
 function calcularQuotas(valor, cuota) {
     let registroPagos = "";
     for(let i = 1; i <= 3; i++) {
-        registroPagos += ` | `
+        registroPagos += `Cuota ${i} de ${cuota}: ${parseInt(valor/3)} |`;
     }    
+    return registroPagos
 }
 
+// let = variable
+// const = constante
+// document = HTML
+// input.value = valor del input
+// getElementById = busca la id 
+// document.getElementById = busca la id en el documento
 function simularCuotas() {
-    const producto = document.getElementById("input5");
-    const cuota = document.getElementById("result5");
-    const result = document.getElementById("container");
-    const container = document.getElementById
+    const producto = document.getElementById("input5_1");
+    let valorProducto = parseInt(producto.value);
+    const cuotaInput = document.getElementById("input5_2");
+    let cuota = parseInt(cuotaInput.value);
+    const result = document.getElementById("result5");
+    const container = document.getElementById("container5");
+    let resultado = calcularQuotas(valorProducto, cuota)// Llama a la función
     result.textContent = resultado;
-    input.value = "";
+    producto.value = "";
+    cuotaInput.value = "";
     container.classList.remove("d-none");
-
 }
+
+/*Ejercicio 6: Filtro de Presupuesto (for e if)
+Contexto: Una vitrina virtual tiene varios precios. El cliente ingresa cuánta plata tiene en el bolsillo, y el sistema le muestra solo los precios que le alcanza para pagar.
+Crea un arreglo de precios: let vitrina = [2500, 15000, 8000, 30000, 5000];
+Función Principal: Crea filtrarPrecios().
+Captura el número desde el input (este será el presupuesto del cliente. Recuerda usar Number()).
+Crea una variable opciones = "Te alcanza para los precios: ";
+Recorre el arreglo vitrina con un for.
+Dentro del ciclo, usa un if. Si el precio actual del arreglo es menor o igual (<=) a la plata que ingresó el cliente, súmalo a la variable opciones más un guion (-).
+Muestra el resultado en el textContent del párrafo.
+Limpia el input.
+ */
+
+//vitrina = arreglo
+let vitrina = [2500, 15000, 8000, 30000, 5000];
+let opciones = [];
+function comprobarPresupuesto(presupuesto) {
+    if (presupuesto >= vitrina[i]) {
+        opciones.push(vitrina[i]);
+    };
+};
+
+// let = variable
+// const = constante
+// document = HTML
+// input.value = valor del input
+// isNaN = es una funcion que basicamente dice si es numero o no
+// getElementById = busca la id 
+// document.getElementById = busca la id en el documento
+function filtrarPrecios() {
+    let input = document.getElementById("input6");
+    const result = document.getElementById("result6");
+    const container = document.getElementById("container6");
+    let dinero = parseInt(input.value);
+    if (isNaN(dinero)) { 
+        alert("Ingresa valores válidos.");
+    } else {
+        let resultado = comprobarPresupuesto(dinero); // Llama a la función
+        result.textContent = resultado;
+        input.value = "";
+        container.classList.remove("d-none") //se quita la clase d-none de bootstrap
+        opciones = [];
+    }
+}
+
+/*Ejercicio 7: Cálculo de Sueldo Líquido (Una función llama a otra)
+Contexto: El usuario ingresa su Sueldo Bruto. Una función matemática oculta descuenta el 20% (AFP y Salud) y le devuelve el dato a la pantalla para mostrar cuánto dinero real recibirá a fin de mes.
+Función Ayudante (La Matemática): Crea una función calcularDescuentos(bruto). Esta función multiplica el bruto por 0.8 y usa return para devolver el resultado.
+Función Principal (La Interfaz): Crea procesarSueldo(). (Esta va en el botón).
+Captura el sueldo desde el input y conviértelo a número.
+Dentro de procesarSueldo, llama a tu función calcularDescuentos() pasándole el número capturado, y guarda lo que te devuelve en una variable llamada sueldoLiquido.
+Modifica el textContent del párrafo: "Tu sueldo a pago es: $" + sueldoLiquido.
+Limpia el input.
+ */
+
+
+/*Ejercicio 8: El Carrito de Compras (Reto Final - Delegación de tareas)
+Contexto: Vamos agregando productos al carrito. Una función anota el producto y le pide ayuda a otra función para que dibuje el carrito actualizado en la pantalla.
+Crea un arreglo vacío: let carrito = [];
+Función Ayudante (La Pantalla): Crea actualizarPantalla(). Esta función tomará el arreglo carrito, lo unirá en un texto (ej: carrito.join(" - ")) y lo inyectará en el textContent del párrafo.
+Función Principal (La Lógica): Crea agregarAlCarrito(). (Esta va en el botón).
+Captura el producto desde el input.
+Si el input no está vacío, usa .push() para agregarlo al carrito.
+¡Limpia el input!
+Al final de esta función, llama a actualizarPantalla() para que la vista se refresque automáticamente con el nuevo producto.
+ */
