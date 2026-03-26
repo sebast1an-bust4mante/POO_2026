@@ -1,8 +1,8 @@
-/* Ejercicio 1: Función con validación de datos
+/*
+Ejercicio 1: Función con validación de datos
 Objetivo: Validar entradas antes de procesarlas.
 
 Instrucciones:
-
 Crea un input donde el usuario escriba un número.
 Crea una función verificarNumero.
 La función debe:
@@ -10,23 +10,28 @@ Capturar el valor del input
 Verificar si está vacío
 Si está vacío → mostrar: "Debes ingresar un número"
 Si tiene valor → mostrar: "Número ingresado correctamente"
+
+1 decima Matias/Benjamin T/Sebastian/Martin R
 */
-function verificarNumero() {
-    const input = document.getElementById("input1");
-    const result = document.getElementById("result1");
-    const container = document.getElementById("container1");
-    let numero = parseInt(input.value);
-    if (isNaN(numero) >= 1) {
-        result.textContent = "Debes ingresar un número"
-    } else if (isNaN(numero) <= 1) {
-        result.textContent = "Número ingresado correctamente"
+function verificar(numero) {
+    if (isNaN(numero)) {
+        return "Debes ingresar un numero válido";
     } else {
-        result.textContent = "Error"
+        return "Numero ingresado correctamente";
     }
-    container.classList.remove("d-none");
-};
-//-------------------------------------------------------------------
-/* Ejercicio 2: Función que usa condicional múltiple
+}
+function verificarNumero() {
+    const container = document.getElementById("container1");
+    const result = document.getElementById("result1");
+    let input = document.getElementById("input1");
+    let numero = parseInt(input.value);
+    let validacion = verificar(numero)
+    input.value = "";
+    result.textContent = validacion;
+    container.classList.remove("d-none")
+}
+/*
+Ejercicio 2: Función que usa condicional múltiple
 Objetivo: Aplicar lógica con múltiples condiciones.
 
 Instrucciones:
@@ -39,81 +44,89 @@ Mostrar en pantalla:
 "Reprobado" si es menor a 4.0
 "Aprobado" si está entre 4.0 y 5.9
 "Sobresaliente" si es 6.0 o más
+
 */
+
+// Benjamin D - Ignacio diaz - Marcelo rios - Daniel Jimenez +1
+function nota(numero) {
+    if (numero >= 6.0 && numero <= 7.0) {
+        return "Sobresaliente"
+    } else if (numero <= 5.9 && numero >= 4.0) {
+        return "Aprobado"
+    } else if (numero >= 1.0 && numero <= 3.9) {
+        return "Reprobado"
+    } else if (numero < 1.0 || numero > 7.0) {
+        return "Coloque una nota válida"
+    } else {
+        return "Ingrese un valor válido"
+    };
+};
 function evaluarNota() {
-    const input = document.getElementById("input2");
     const result = document.getElementById("result2");
     const container = document.getElementById("container2");
-    let nota = parseInt(input.value);
-    if (nota < 4) {
-        result.textContent = "Reprobado"
-    } else if (nota >= 4 && nota <= 5.9) {
-        result.textContent = "Aprobado"
-    } else if (nota >= 6) {
-        result.textContent = "Sobresaliente"
-    } else {
-        result.textContent = "Coloca una nota valida"
-    }
-    container.classList.remove("d-none");
-}
-//-------------------------------------------------------------------
-/* Ejercicio 3: Uso de múltiples funciones (flujo completo)
- Objetivo: Integrar varias funciones con roles distintos.
+    let input =  document.getElementById("input2");
+    let numero = parseFloat(input.value);
+    let notas = nota(numero);
 
- Instrucciones:
+    input.value = "";
+    result.textContent = notas;
+    container.classList.remove("d-none")
+};
 
-Crea dos funciones ayudantes:
+// Ejercicio 3: Uso de múltiples funciones (flujo completo)
+function procesarNumero() {
+    const result = document.getElementById("result3");
+    const container = document.getElementById("container3");
+    let input = document.getElementById("input3");
+    let resultInput = parseInt(input.value);
+    let resultadoCuadrado = calcularCuadrado(resultInput);
+    let resultadoTriple = calcularTriple(resultInput);
+    input.value = "";
+    result.textContent = `Cuadrado: ${resultadoCuadrado}, Triple: ${resultadoTriple}`;
+    container.classList.remove("d-none")
+};
+
 function calcularCuadrado(numero) {
+    verificarNumero(numero)
     return numero * numero;
-}
-
- function calcularTriple(numero) {
-    return numero * 3;
-}
-Crea una función principal procesarNumero que:
-Capture un número desde un input
-Llame a ambas funciones
-Muestre en pantalla:
-Cuadrado: X
-Triple: Y
-Sugerencia didáctica (para tu clase)
-
-Puedes usar estos ejercicios como:
-
-Trabajo en parejas (uno codifica, otro revisa)
-Ticket de salida (Ejercicio 5 o 6)
-Evaluación formativa (Ejercicio 8)
-*/
-function calcularCuadrado(numero) {
-    return numero * numero;
-}
+};
 
 function calcularTriple(numero) {
     return numero * 3;
+};
+
+/*
+Ejercicio 4: Función que transforma texto
+Objetivo: Manipular strings desde un input.
+
+Instrucciones:
+
+Crea un input para ingresar un texto.
+Crea una función transformarTexto.
+La función debe:
+Capturar el texto
+Convertirlo a mayúsculas (toUpperCase())
+Mostrar el resultado en un <div>
+
+Ejemplo esperado:
+
+Entrada: hola mundo
+Salida: HOLA MUNDO
+*/
+function procesarTexto(texto){
+    if(texto === ""){
+        return "Debes ingresar un texto";
+    };
+    return texto.toUpperCase();
 }
-
-function procesarNumero() {
-    const input = document.getElementById("input2");
-    const result = document.getElementById("result2");
-    const container = document.getElementById("container2");
-    let numero = parseInt
+function transformarTexto(){
+    let texto = document.getElementById('input4');
+    let input = texto.value;
+    const textTransformado =  procesarTexto(input);
+    const result = document.getElementById("result4");
+    const container = document.getElementById("container4");
+    result.textContent = textTransformado;
+    texto.value = "";
+    container.classList.remove('d-none')
 }
-
-
-//-------------------------------------------------------------------
-// Ejercicio 4: Función que transforma texto
-// Objetivo: Manipular strings desde un input.
-
-// Instrucciones:
-
-// Crea un input para ingresar un texto.
-// Crea una función transformarTexto.
-// La función debe:
-// Capturar el texto
-// Convertirlo a mayúsculas (toUpperCase())
-// Mostrar el resultado en un <div>
-
-// Ejemplo esperado:
-
-// Entrada: hola mundo
-// Salida: HOLA MUNDO
+// creditos: jheimy, yoycer, juanP, joaquin
