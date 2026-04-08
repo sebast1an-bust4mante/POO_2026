@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Uso de this</title>
+</head>
+
+<body>
+    <!-- Ejemplo -->
+    <h2>Formulario de prueba</h2>
+
+    <input type="text" placeholder="Escribe tu nombre" onfocus="resaltar(this)" onblur="normal(this)">
+
+    <form onsubmit="return validarFormulario(this)">
+        <label>Correo electrónico:</label><br>
+        <input type="email" name="correo"><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="mensaje"></p>
+
+    <!-- Ejercicio -->
+    <form onsubmit="return validarFormulario(this)">
+        <input type="text" placeholder="Nombre" onfocus="click1(this)" onblur="noClick1(this)">
+        <input type="number" placeholder="Edad" onfocus="click2(this)" onblur="noClick2(this)">
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
