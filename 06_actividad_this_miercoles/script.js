@@ -24,12 +24,12 @@
 
 
 
-function click(this) {
-    this.style.borderColor = "#00fc2a";
+function click(input) {
+    input.style.borderColor = "2px solid #00fc2a";
 }
 
-function noClick(this) {
-    this.style.border = "2px solid #fc0000"
+function noClick(input) {
+    input.style.border = "2px solid #fc0000"
 }
 
 function validarForm(form) {
